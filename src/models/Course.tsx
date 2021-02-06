@@ -1,9 +1,9 @@
 interface Course {
-  id: String,
-  createdAt: String,
-  name: String,
-  image: String,
-  description: String
+  id: string,
+  createdAt: string,
+  name: string,
+  image: string,
+  description: string
 }
 
 export default Course
