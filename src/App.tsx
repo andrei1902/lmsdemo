@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 import { Header } from './components/layout/'
@@ -7,28 +8,22 @@ import { Preloader } from './components/reusable/'
 import { Courses, Course, NotFound } from './components/pages/'
 
 class App extends React.Component {
-  constructor (props) {
-    super(props)
-    // check locale setup on localStorage
-  }
-
   componentDidMount () {
     // Load texts based on locale
     // Assert loginStatus
   }
 
-  render () {
-    const { history } = this.props
+  render (): JSX.Element {
     // Conditional rendering based on login status
     return (
       <div className="App">
         <Suspense fallback={<Preloader />}>
           <Header/>
           <Switch>
-            <Route exact path="/" component={Courses} history={history} />
-            <Route exact path="/courses" component={Courses} history={history} />
-            <Route exact path="/courses/:id" component={Course} history={history} />
-            <Route component={NotFound} history={history} />
+            <Route exact path="/" component={Courses} />
+            <Route exact path="/courses" component={Courses} />
+            <Route exact path="/courses/:id" component={Course} />
+            <Route component={NotFound} />
           </Switch>
         </Suspense>
       </div>
@@ -36,4 +31,4 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App)
+export default App

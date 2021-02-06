@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import layoutReducer from './layoutReducer.js'
-import coursesReducer from './coursesReducer.js'
-import courseReducer from './courseReducer.js'
+import { layoutReducer } from './layoutReducer'
+import coursesReducer from './coursesReducer'
+import courseReducer from './courseReducer'
 
 export default combineReducers({
   layout: layoutReducer,
