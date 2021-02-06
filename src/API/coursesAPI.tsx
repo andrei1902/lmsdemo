@@ -9,11 +9,7 @@ import { COURSES_API_URL } from '../settings'
  * @param {String=} serachTerm filter term
  * @returns {Array<Course>}
  */
-export const fetchCourses = async (
-  // pageSize?: Number = 10,
-  // pageNumber?: Number = 0,
-  // serachTerm?: String = ''
-): Promise<Array<Course>> => {
+export const fetchCourses = async (pageSize?: Number, pageNumber?: Number, serachTerm?: String): Promise<Array<Course>> => {
   const response = await axios.get(COURSES_API_URL)
   return response.data
 }

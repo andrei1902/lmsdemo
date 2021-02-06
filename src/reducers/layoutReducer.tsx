@@ -1,25 +1,53 @@
-import { Reducer, Action } from 'redux'
-import { cloneDeep } from 'lodash';
+import { Reducer } from 'redux';
+import {
+  START_SPINNER,
+  STOP_SPINNER,
+  FIRE_ERROR,
+  LayoutActions,
+  SpinnerName
+} from '../actionTypes/layout';
+import { cloneDeep, remove } from 'lodash';
 
-interface LayoutState {
+export interface LayoutState {
   locale: String,
   texts: {
-
-  }
+    templates: {
+      dataTypesLoading: String
+    }
+  },
+  spinners: Array<SpinnerName>
+  error: Error|null
 }
 
 const defaultState: LayoutState = {
   locale: 'en-en',
   texts: {
-
-  }
+    templates: {
+      dataTypesLoading: '__dateTypes__ are being loaded'
+    }
+  },
+  spinners: [],
+  error: null
 };
 
-export const layoutReducer: Reducer<LayoutState, Action> = (state = cloneDeep(defaultState), action) => {
+export const layoutReducer: Reducer<LayoutState, LayoutActions> = (state = cloneDeep(defaultState), action: LayoutActions): LayoutState => {
   switch (action.type) {
-    default: {
-      return { ...state };
+    case START_SPINNER: {
+      const newState = cloneDeep(state);
+      newState.spinners = [...newState.spinners, action.payload];
+      return newState;
     }
+    case STOP_SPINNER: {
+      const newState = cloneDeep(state);
+      remove(newState.spinners, (sp: String) => sp === action.payload);
+      return newState;
+    }
+    case FIRE_ERROR: {
+      const newState = cloneDeep(state);
+      newState.error = action.payload;
+      return newState;
+    }
+    default: return cloneDeep(state);
   }
 };
 

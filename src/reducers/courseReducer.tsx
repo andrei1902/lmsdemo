@@ -4,7 +4,7 @@ import { cloneDeep } from 'lodash';
 
 import { CoursesActions } from '../actionTypes/courses'
 
-interface CourseState {
+export interface CourseState {
   fetched: Boolean|null,
   course: Course
 }
@@ -20,12 +20,10 @@ const defaultState: CourseState = {
   }
 };
 
-const courseReducer: Reducer<CourseState, CoursesActions> = (state = cloneDeep(defaultState), action: CoursesActions) => {
+export const courseReducer: Reducer<CourseState, CoursesActions> = (state = cloneDeep(defaultState), action: CoursesActions): CourseState => {
   switch (action.type) {
     default: {
       return { ...state };
     }
   }
 };
-
-export default courseReducer;

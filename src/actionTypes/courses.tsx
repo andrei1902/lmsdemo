@@ -1,24 +1,24 @@
 import Course from '../models/Course'
-const FETCH_COURSES_FULFILLED = 'FETCH_COURSES_FULFILLED'
-const FETCH_COURSES_REJECTED = 'FETCH_COURSES_FULFILLED'
-const FETCH_COURSE_FULFILLED = 'FETCH_COURSES_FULFILLED'
-const FETCH_COURSE_REJECTED = 'FETCH_COURSES_FULFILLED'
+export const FETCH_COURSES_FULFILLED = 'FETCH_COURSES_FULFILLED'
+export const FETCH_COURSES_REJECTED = 'FETCH_COURSES_FULFILLED'
+export const FETCH_COURSE_FULFILLED = 'FETCH_COURSES_FULFILLED'
+export const FETCH_COURSE_REJECTED = 'FETCH_COURSES_FULFILLED'
 
-interface FetchCoursesFulfilledAction {
+export interface FetchCoursesFulfilledAction {
   type: typeof FETCH_COURSES_FULFILLED,
   payload: Array<Course>
 }
 
-interface FetchCoursesRejectedAction {
+export interface FetchCoursesRejectedAction {
   type: typeof FETCH_COURSES_REJECTED
 }
 
-interface FetchCourseFulfilledAction {
+export interface FetchCourseFulfilledAction {
   type: typeof FETCH_COURSE_FULFILLED,
   payload: Array<Course>
 }
 
-interface FetchCourseRejectedAction {
+export interface FetchCourseRejectedAction {
   type: typeof FETCH_COURSE_REJECTED
 }
 
