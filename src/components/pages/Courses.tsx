@@ -15,7 +15,7 @@ export const Courses = (): JSX.Element => {
 
   const renderReloadbutton = () => {
     if (layout.error) {
-      return <ReloadButton handleReload={onReload}/>
+      return <ReloadButton id="ReloadButton" handleReload={onReload}/>
     }
     return null
   }
