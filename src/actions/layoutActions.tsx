@@ -4,7 +4,7 @@ import {
   STOP_SPINNER,
   FIRE_ERROR,
   SpinnerName
-} from '../../actionTypes/layout'
+} from '../actionTypes/layout'
 
 /**
  * Action creator to start a spinner

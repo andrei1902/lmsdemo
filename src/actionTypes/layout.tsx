@@ -17,6 +17,6 @@ interface FireError {
   payload: Error
 }
 
-export type SpinnerName = 'courses' | 'layout'
+export type SpinnerName = 'courses' | 'layout' | 'enrollments'
 
 export type LayoutActions = StartSpinner | StopSpinner | FireError

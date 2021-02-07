@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchCourses } from '../actions/courses/coursesActions'
+import { fetchCourses } from '../actions/coursesActions'
 import { RootState } from '../reducers/index'
 import { CoursesState } from '../reducers/coursesReducer'
 

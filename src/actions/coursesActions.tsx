@@ -1,6 +1,6 @@
-import { fetchCourses as getCourses } from '../../API/coursesAPI'
-import Course from '../../models/Course'
-import { CoursesActions, FETCH_COURSES_FULFILLED, FETCH_COURSES_REJECTED } from '../../actionTypes/courses'
+import { fetchCourses as getCourses } from '../API/coursesAPI'
+import Course from '../models/Course'
+import { CoursesActions, FETCH_COURSES_FULFILLED, FETCH_COURSES_REJECTED } from '../actionTypes/courses'
 import { startSpinner, stopSpinner, fireError } from './layoutActions' 
 
 /**
