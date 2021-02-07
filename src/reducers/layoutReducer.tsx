@@ -13,7 +13,9 @@ export interface LayoutState {
   texts: {
     templates: {
       dataTypesLoading: String
-    }
+    },
+    courses: String,
+    enrollments: String
   },
   spinners: Array<SpinnerName>
   error: Error|null
@@ -24,7 +26,9 @@ const defaultState: LayoutState = {
   texts: {
     templates: {
       dataTypesLoading: '__dateTypes__ are being loaded'
-    }
+    },
+    courses: 'Courses',
+    enrollments: 'Enrollments'
   },
   spinners: [],
   error: null
