@@ -22,9 +22,9 @@ export const SpinnerText = (): JSX.Element|null => {
     return withFadeAnimation((
       <Fragment>
         <div className={classes.root}>
-          {layout.spinners.map((txt: any): any => {
+          {layout.spinners.map((txt: any, i: number): any => {
             return (
-              <Typography variant="body2" component="p" align="center">
+              <Typography key={`spinnerTextKey${i}`} variant="body2" component="p" align="center">
                 {layout.texts.templates.dataTypesLoading.replace('__dateTypes__', txt)}
               </Typography>
             )

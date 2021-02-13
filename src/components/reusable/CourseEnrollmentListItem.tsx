@@ -1,4 +1,7 @@
 import React from 'react'
+import moment from 'moment';
+// Remeber to import locales as you need them
+// import 'moment/locale/fr';
 import { withGrowAnimation } from '../../HOC/withGrowAnimation'
 import DisplayedEnrollment from '../../models/DisplayedEnrollment'
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +10,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 
 interface CourseEnrollmentListItemProps {
-  enrollment: DisplayedEnrollment
+  enrollment: DisplayedEnrollment,
+  locale: string
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +31,7 @@ export const CourseEnrollmentListItem = (props: CourseEnrollmentListItemProps): 
           </Avatar>
         }
         title={`${props.enrollment.user.name} - ${props.enrollment.course.name}`}
-        subheader={props.enrollment.createdAt}
+        subheader={moment(props.enrollment.createdAt).locale(props.locale).format('LLLL')}
       />
     </Card>
   ), true);

@@ -21,8 +21,8 @@ export const CourseEnrollments = (): JSX.Element => {
   }
 
   const renderCourseEnrollments = () => {
-    return enrollmentsState.enrollments.map((e) => {
-      return <CourseEnrollmentListItem enrollment={e} />
+    return enrollmentsState.enrollments.map((e, i) => {
+      return <CourseEnrollmentListItem key={`EnrollmentItem${i}`} enrollment={e} locale={layout.locale} />
     })
   }
 

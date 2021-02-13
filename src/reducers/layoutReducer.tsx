@@ -9,7 +9,7 @@ import {
 import { cloneDeep, remove } from 'lodash';
 
 export interface LayoutState {
-  locale: String,
+  locale: string,
   texts: {
     templates: {
       dataTypesLoading: String
@@ -22,7 +22,7 @@ export interface LayoutState {
 }
 
 const defaultState: LayoutState = {
-  locale: 'en-en',
+  locale: 'en',
   texts: {
     templates: {
       dataTypesLoading: '__dateTypes__ are being loaded'

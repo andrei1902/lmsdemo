@@ -21,8 +21,8 @@ export const Courses = (): JSX.Element => {
   }
 
   const renderCourses = () => {
-    return courseState.courses.map((c) => {
-      return <CourseListItem course={c} />
+    return courseState.courses.map((c, i) => {
+      return <CourseListItem key={`CoursesItem${i}`} course={c} locale={layout.locale} />
     })
   }
 
