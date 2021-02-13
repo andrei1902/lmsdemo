@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import Course from '../models/Course';
-import { CoursesActions, FetchCoursesFulfilledAction, FETCH_COURSES_FULFILLED, FETCH_COURSES_REJECTED } from '../actionTypes/courses';
+import { FETCH_COURSES_FULFILLED, FETCH_COURSES_REJECTED, RESET_COURSES } from '../actionTypes/courses';
 import { cloneDeep } from 'lodash';
 
 
@@ -18,7 +18,7 @@ export const defaultState: CoursesState = {
   courses: []
 };
 
-export const coursesReducer: Reducer<CoursesState, FetchCoursesFulfilledAction> = (state = cloneDeep(defaultState), action: FetchCoursesFulfilledAction): CoursesState => {
+export const coursesReducer: Reducer<CoursesState, any> = (state = cloneDeep(defaultState), action: any): CoursesState => {
   switch (action.type) {
     case FETCH_COURSES_FULFILLED: {
       const newState = cloneDeep(state);
@@ -30,6 +30,9 @@ export const coursesReducer: Reducer<CoursesState, FetchCoursesFulfilledAction> 
       const newState = cloneDeep(state);
       newState.fetched = false;
       return newState;
+    }
+    case RESET_COURSES: {
+      return cloneDeep(defaultState);
     }
     default: {
       return { ...state };

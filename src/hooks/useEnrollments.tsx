@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchEnrollments } from '../actions/enrollmentsActions'
+import { fetchEnrollments, resetEnrollments } from '../actions/enrollmentsActions'
 import { RootState } from '../reducers/index'
 import { EnrollmentsState } from '../reducers/enrollmentsReducer'
 
@@ -10,6 +10,9 @@ const useEnrollments = (): [EnrollmentsState, Function] => {
 
   useEffect(() => {
       dispatch(fetchEnrollments())
+      return () => {
+        dispatch(resetEnrollments())
+      }
   }, [dispatch])
 
   return [enrollments, fetchEnrollments]

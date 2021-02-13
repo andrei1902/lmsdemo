@@ -4,7 +4,7 @@ import { fetchCourses as getCourses } from '../API/coursesAPI'
 import Enrollment from '../models/Enrollment'
 import User from '../models/User'
 import Course from '../models/Course'
-import { EnrollmentsActions, FETCH_ENROLLMENTS_FULFILLED, FETCH_ENROLLMENTS_REJECTED } from '../actionTypes/enrollments'
+import { EnrollmentsActions, ResetEnrollmentsAction, FETCH_ENROLLMENTS_FULFILLED, FETCH_ENROLLMENTS_REJECTED, RESET_ENROLLMENTS } from '../actionTypes/enrollments'
 import { startSpinner, stopSpinner, fireError } from './layoutActions' 
 
 /**
@@ -58,5 +58,16 @@ export const fetchEnrollmentsFulfilled = (
 export const fetchCoursesRejected = (): EnrollmentsActions => {
   return {
     type: FETCH_ENROLLMENTS_REJECTED
+  }
+}
+
+/**
+ * Action creator to reset enrollments state
+ * @param {SPINNER_NAME} spinnerName the name of a spinner
+ * @returns {ResetEnrollmentsAction}
+ */
+export const resetEnrollments = (): ResetEnrollmentsAction => {
+  return {
+    type: RESET_ENROLLMENTS
   }
 }

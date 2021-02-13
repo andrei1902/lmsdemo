@@ -1,6 +1,6 @@
 import { fetchCourses as getCourses } from '../API/coursesAPI'
 import Course from '../models/Course'
-import { CoursesActions, FETCH_COURSES_FULFILLED, FETCH_COURSES_REJECTED } from '../actionTypes/courses'
+import { CoursesActions, FETCH_COURSES_FULFILLED, FETCH_COURSES_REJECTED, RESET_COURSES } from '../actionTypes/courses'
 import { startSpinner, stopSpinner, fireError } from './layoutActions' 
 
 /**
@@ -48,5 +48,15 @@ export const fetchCoursesFulfilled = (courses: Array<Course>): CoursesActions =>
 export const fetchCoursesRejected = (): CoursesActions => {
   return {
     type: FETCH_COURSES_REJECTED
+  }
+}
+
+/**
+ * Action creator to reset the courses state
+ * @returns {CoursesActions}
+ */
+export const resetCourses = (): CoursesActions => {
+  return {
+    type: RESET_COURSES
   }
 }
