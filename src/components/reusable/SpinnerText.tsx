@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import { withFadeAnimation } from '../../HOC/withFadeAnimation';
 import useLayout from '../../hooks/useLayout';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
@@ -18,7 +19,7 @@ export const SpinnerText = (): JSX.Element|null => {
   const classes = useStyles();
 
   if (layout.spinners.length) {
-    return (
+    return withFadeAnimation((
       <Fragment>
         <div className={classes.root}>
           {layout.spinners.map((txt: any): any => {
@@ -31,7 +32,7 @@ export const SpinnerText = (): JSX.Element|null => {
           <CircularProgress />
         </div>
       </Fragment>
-    )
+    ), true)
   }
 
   return null

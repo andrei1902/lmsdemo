@@ -1,6 +1,7 @@
 import Course from '../../models/Course';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { withFadeAnimation } from '../../HOC/withFadeAnimation';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -28,7 +29,7 @@ const useStyles = makeStyles(() => ({
 export const CourseListItem = (props: CourseListItemProps): JSX.Element => {
   const classes = useStyles();
 
-  return (
+  return withFadeAnimation((
     <Card className={classes.root}>
       <CardHeader
         title={props.course.name}
@@ -53,5 +54,5 @@ export const CourseListItem = (props: CourseListItemProps): JSX.Element => {
         </IconButton>
       </CardActions>
     </Card>
-  );
+  ), true);
 }
