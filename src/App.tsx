@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 
 import { Header } from './components/layout/';
 import { Preloader } from './components/reusable/';
-import { Courses, Course, NotFound, CourseEnrollments } from './components/pages/';
+import { Courses, NotFound, CourseEnrollments } from './components/pages/';
 
 class App extends React.Component {
   componentDidMount () {
@@ -27,7 +27,6 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Courses} />
               <Route exact path="/courses" component={Courses} />
-              <Route exact path="/courses/:id" component={Course} />
               <Route exact path="/enrollments" component={CourseEnrollments} />
               <Route component={NotFound} />
             </Switch>
