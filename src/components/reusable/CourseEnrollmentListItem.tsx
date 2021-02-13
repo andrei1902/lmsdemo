@@ -1,4 +1,5 @@
 import React from 'react'
+import { withGrowAnimation } from '../../HOC/withGrowAnimation'
 import DisplayedEnrollment from '../../models/DisplayedEnrollment'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -16,10 +17,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const CourseEnrollmentListItem = (props: CourseEnrollmentListItemProps): JSX.Element => {
-  console.log(props.enrollment)
   const classes = useStyles();
 
-  return (
+  return withGrowAnimation((
     <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -30,5 +30,5 @@ export const CourseEnrollmentListItem = (props: CourseEnrollmentListItemProps): 
         subheader={props.enrollment.createdAt}
       />
     </Card>
-  );
+  ), true);
 }
